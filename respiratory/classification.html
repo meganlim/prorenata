@@ -1,0 +1,321 @@
+
+<script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+
+<div id="info" class="text"></div>
+
+<div id="wrapper"><span class="label">Respiratory</span>
+  <div class="branch lv1">
+
+    <div class="entry"><span class="label" id="h1block"><a>Histamine-1 <br>blockers</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="firstgen"><a>First generation</a></span>
+        </div>
+        <div class="entry"><span class="label" id="secondgen"><a>Second generation</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="cough"><a>Cough <br>suppressants</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="dextro"><a>Dextromethorphan</a></span>
+        </div>
+        <div class="entry"><span class="label" id="codeine"><a>Codeine</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="nasal"><a>Nasal <br>decongestants</a></span>
+    </div>
+    <div class="entry"><span class="label" id="mucoactive"><a>Mucoactive<br> agents</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="expectorant"><a>Expectorants</a></span>
+        </div>
+        <div class="entry"><span class="label" id="mucolytic"><a>Mucolytics</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry"><span class="label" id="pulmhtn"><a>Pulmonary<br>hypertension<br> drugs</a></span>
+    </div>
+
+    <div class="entry"><span class="label" id="asthma"><a>Obstructive<br> Lung Disease</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="broncho"><a>Bronchodilators</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="beta2"><a>Beta2 agonists</a></span>
+              <div class="branch lv2">
+                <div class="entry"><span class="label" id="saba"><a>SABA</a></span>
+                </div>
+                <div class="entry"><span class="label" id="laba"><a>LABA</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="entry"><span class="label" id="mantag"><a>Muscarinic antagonists</a></span>
+            </div>
+            <div class="entry"><span class="label" id="methyl"><a>Methylxanthines</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="antiinflam"><a>Anti-<br>inflammatory</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="cortico"><a>Corticosteroids</a></span>
+              <div class="branch lv2">
+                <div class="entry"><span class="label" id="oral"><a>Oral</a></span>
+                </div>
+                <div class="entry"><span class="label" id="inhaled"><a>Inhaled</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="entry"><span class="label" id="leuko"><a>Antileukotrienes</a></span>
+              <div class="branch lv2">
+                <div class="entry"><span class="label" id="lipoxy"><a>Lipoxygenase inhibitor</a></span>
+                </div>
+                <div class="entry"><span class="label" id="rantag"><a>Receptor antagonists</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="entry"><span class="label" id="degrani"><a>Degranulation inhibitors</a></span>
+            </div>
+            <div class="entry"><span class="label" id="monoclonal"><a>Monoclonal antibodies</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="entry"><span class="label" id="antibiotics"><a>Antibiotics</a></span>
+        <div class="branch lv2">
+          <div class="entry"><span class="label" id="cellwall"><a>cell wall <br>synthesis <br>inhibitors</a></span>
+            <div class="branch lv2">
+              <div class="entry"><span class="label" id="betalactam"><a>Beta lactam</a></span>
+                <div class="branch lv2">
+                  <div class="entry"><span class="label" id="penicillin"><a>Penicillin</a></span>
+                  </div>
+                  <div class="entry"><span class="label" id="ceph"><a>Cephalosporin</a></span>
+                  </div>
+                  <div class="entry"><span class="label" id="carbapenem"><a>Carbapenem</a></span>
+                  </div>
+                  <div class="entry"><span class="label" id="monobactam"><a>Monobactam</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="entry"><span class="label" id="glycopeptide"><a>Glycopeptide</a></span>
+              </div>
+            </div>
+          </div>
+          <div class="entry"><span class="label" id="proteini"><a>protein <br>synthesis <br>inhibitors</a></span>
+            <div class="branch lv2">
+              <div class="entry"><span class="label" id="30s"><a>30S</a></span>
+                <div class="branch lv2">
+                  <div class="entry"><span class="label" id="aminoglycoside"><a>aminoglycosides</a></span>
+                  </div>
+                  <div class="entry"><span class="label" id="tetra"><a>tetracyclines</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="entry"><span class="label" id="50s"><a>50S</a></span>
+                <div class="branch lv2">
+                  <div class="entry"><span class="label" id="macrolide"><a>clindamycine,<br>macrolide</a></span>
+                  </div>
+                  <div class="entry"><span class="label" id="linezolid"><a>linezolid</a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="entry"><span class="label" id="dnainhib"><a>DNA<br> synthesis<br> inhibitors</a></span>
+            <div class="branch lv2">
+              <div class="entry"><span class="label" id="fluoro"><a>Fluoroquinolones</a></span>
+              </div>
+              <div class="entry"><span class="label" id="sulfo"><a>Sulfonamides</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<script>
+  var display = document.getElementById('info');
+
+  asthma.addEventListener('click', function(){ display.innerHTML = "<ul><li>administer O2 prior to pharmacological Tx</li></ul>";}, false);
+  broncho.addEventListener('click', function(){ display.innerHTML = "<ul><li>parasympathetic tone</li><li>early response</li></ul>";}, false);
+  saba.addEventListener('click', function(){ display.innerHTML = "<ul><li>albuterol: short-acting agent used during acute exacerbations</li></ul>";}, false);
+  laba.addEventListener('click', function(){ display.innerHTML = "<ul><li>salmeterol, formoterol: long-acting agents used for long-term therapy</li><li>high lipid solubility allows it to concentrate in lipid bilayer of smooth muscle membranes</li><li>NOT for monotherapy</li></ul>";}, false);
+  beta2.addEventListener('click', function(){ display.innerHTML = "<ul><li>MOA: facilitate conversion of adenylate cyclase to cAMP, which relaxes bronchial smooth muscle</li></ul>";}, false);
+  mantag.addEventListener('click', function(){ display.innerHTML = "<ul><li>competitively inhibit M3 muscarinic receptors, preventing bronchoconstriction</li><li>ipratroprium bromide, tiotropium(long acting)</li></ul>";}, false);
+  methyl.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit PDE(which normally hydrolyzes cAMP) --> increases cAMP levels --> bronchodilation</li><li>rarely used due to very narrow therapeutic index</li><li>ex: theophylline</li></ul>";}, false);
+  antiinflam.addEventListener('click', function(){ display.innerHTML = "<ul><li>later response</li><li>refer to leukotriene pathway</li></ul>";}, false);
+
+  cortico.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit synthesis of cytokines</li><li>inhibit phospholipase A2 of leukotriene pathway</li><li>side effect: oral candidiasis (thrush)</li></ul>";}, false);
+  oral.addEventListener('click', function(){ display.innerHTML = "<ul><li>ex: prednisone</li></ul>";}, false);
+  inhaled.addEventListener('click', function(){ display.innerHTML = "<ul><li>ex: budesonide, fluticosone</li><li></li></ul>";}, false);
+
+  leuko.addEventListener('click', function(){ display.innerHTML = "<li>considered when asthma is refractory to LABA and inhaled corticosteroids</li><img src='leukotriene_pathway.jpeg'>";}, false);
+  lipoxy.addEventListener('click', function(){ display.innerHTML = "<ul><li>zileuton: 5-lipoxygenase inhibitor, blocks conversion of arachadonic acid to leukotrienes</li><li>side effect of zileuton: hepatotoxicity</li></ul>";}, false);
+  rantag.addEventListener('click', function(){ display.innerHTML = "<ul><li>montelukast: competitively inhibit leukotriene receptors</li></ul>";}, false);
+  monoclonal.addEventListener('click', function(){ display.innerHTML = "<ul><li>binds to IgE and prevents IgE from activating inflammation</li><li>ex: Omalizumab</li><li>considered when asthma is refractory to LABA and inhaled corticosteroids</li></ul>";}, false);
+  degrani.addEventListener('click', function(){ display.innerHTML = "<ul><li>used for prevention, must be given prior to allergen response</li><li>inhibit activation of eosinophils and mast cells</li><li>cromolyn sodium</li></ul>";}, false);
+
+  cellwall.addEventListener('click', function(){ display.innerHTML = "<ul><li>greatest effect against gram positive due to peptidoglycan in the cell wall</li></ul>";}, false);
+  betalactam.addEventListener('click', function(){ display.innerHTML = "<ul><li>contains beta lactam ring in molecular structure</li><li>susceptible to beta lactamase, thus often paired with beta-lactamase inhibitors</li></ul>";}, false);
+  penicillin.addEventListener('click', function(){ display.innerHTML = "<ul><li>natural: Penicillin G and V</li><li>anti-staph: methicillin, oxacillin, nafcillin</li><li>extended spectrum(aminopenicillins): amoxicillin, ampicillin</li><li>combine with beta-lactamase inhibitors: clavulanic acid, avibactam, sulbactam, tazobactam</li></ul>";}, false);
+  ceph.addEventListener('click', function(){ display.innerHTML = "<ul><li>as the generation increases, coverage shifts from gram positive to gram negative and resistance to beta-lactamase</li><li>1st gen: cefazolin, cephalexin</li><li>2nd gen: intermediate spectrum</li><li>3rd gen: broad spectrum, ceftriaxone</li><li>4th gen: pseudomonas coverage, cefepime</li><li>5th gen: very broad spectrum</li><li>cross reactive hypersensitivity to PCN's</li></ul>";}, false);
+  carbapenem.addEventListener('click', function(){ display.innerHTML = "<ul><li>broadest spectrum of beta-lactams: covers gram pos, neg, anaerobes, all streptococci</li><li>preferred agent for serious infections by extended spectrum beta-lactamase pathogens</li><li>doripenem, ertapenem, impenem</li><li></li></ul>";}, false);
+  monobactam.addEventListener('click', function(){ display.innerHTML = "<ul><li>NOT useful against gram pos/anaerobes, use for gram neg aerobes</li></ul>";}, false);
+  var glycopeptideSmiles = {'vancomycin': 'CC1C(C(CC(O1)OC2C(C(C(OC2OC3=C4C=C5C=C3OC6=C(C=C(C=C6)C(C(C(=O)NC(C(=O)NC5C(=O)NC7C8=CC(=C(C=C8)O)C9=C(C=C(C=C9O)O)C(NC(=O)C(C(C1=CC(=C(O4)C=C1)Cl)O)NC7=O)C(=O)O)CC(=O)N)NC(=O)C(CC(C)C)NC)O)Cl)CO)O)O)(C)N)O'};
+  glycopeptide.addEventListener('click', function(){ display.innerHTML = "<ul><li>bind to terminal portion of growing cell wall</li><li>Vancomycin: MRSA, gram pos bacteria (not for gram neg because the outer membrane acts as a diffusion barrier for bulky molecules that are too large to pass through porin channels and affect cell wall synthesis)</li></ul>";}, false);
+  glycopeptide.addEventListener('click', function(){
+    for (let k in glycopeptideSmiles) {
+      initRDKitModule().then(function (instance) {
+        RDKitModule = instance;
+        // window.alert("version: " + RDKitModule.version());
+        var smiles = glycopeptideSmiles[k]
+        var mol = RDKitModule.get_mol(smiles);
+        var svg = mol.get_svg();
+        display.innerHTML += "<li>" + k + svg + "</li>";
+      })
+    }})
+
+  fluoro.addEventListener('click', function(){ display.innerHTML = "<ul><li>-floxacins</li><li>ciprofloxacin, levofloxacin, gemifloxacin</li><li>inhibits DNA gyrase(topoisomerase) responsible for relieving tension in DNA replication</li><li>contraindicated in pregnancy</li></ul>";}, false);
+  sulfo.addEventListener('click', function(){ display.innerHTML = "<ul><li>sulfamethoxazole/trimethoprim</li><li>inhibit formation of folic acid, which bacteria need to synthesize DNA nucleic acids</li></ul>";}, false);
+
+  aminoglycoside.addEventListener('click', function(){ display.innerHTML = "<ul><li>gentamicin, neomycin, streptomycin</li><li>causes misreading of mRNA</li><li>needs O2 to cross cell membrane, thus ineffective against anaerobes</li><li>NOT for monotherapy: must be combined with another agent(ie. beta lactam antibiotics)</li></ul>";}, false);
+  tetra.addEventListener('click', function(){ display.innerHTML = "<ul><li>block tRNA site on mRNA-ribosome complex</li><li>Doxycycline indicated for community acquired pneumonia</li></ul>";}, false);
+
+  macrolide.addEventListener('click', function(){ display.innerHTML = "<ul><li>erythromycin, azithromycin, clarithromycin</li><li>bind to peptide exit tunnel to prevent peptide chain elongation</li><li>more effective against gram pos rather than gram neg bacteria because macrolides have bulky structure that doesn't penetrate membranes in gram neg</li><li></li></ul>";}, false);
+  linezolid.addEventListener('click', function(){ display.innerHTML = "<ul><li>prevent formation of ribosomal complex</li><li>no effect on gram neg bacteria</li><li>effective against MRSA</li></ul>";}, false);
+
+  h1block.addEventListener('click', function(){ display.innerHTML = "<ul><li>reversible inhibition of H1 histamine receptors, which are involved in the inflammatory process</li></ul>";}, false);
+  firstgen.addEventListener('click', function(){ display.innerHTML = "<ul><li>indications: allergy, motion sickness, sleep aid</li><li>ex: (-en/-ine) or (-en/-ate), diphenhydramine, dimenhydrinate, chlorpheniramine</li><li>adverse effects: sedation due to CNS effects</li></ul>";}, false);
+  secondgen.addEventListener('click', function(){ display.innerHTML = "<ul><li>unlike first generation H1 blockers, second generation H1 blockers don't readily cross the BBB and thus are far less sedating</li><li>indications: allergy</li><li>ex: (-adine), loratadine, fexofenadine, desloratadine</li></ul>";}, false);
+
+  dextro.addEventListener('click', function(){ display.innerHTML = "<ul><li>synthetic codeine analog</li><li>antagonizes NMDA glutamate receptors</li><li>has mild opioid effect when used in excess</li><li>may cause serotonin syndrome if combined with other serotonergic agents</li></ul>";}, false);
+  codeine.addEventListener('click', function(){ display.innerHTML = "<ul><li>taken orally</li><li>prolonged use can lead to hypogonadism</li></ul>";}, false);
+
+  pulmhtn.addEventListener('click', function(){ display.innerHTML = "<ul><li>bosentan: competitively inhibits endothelin-1 receptors, preventing pulmonary vasoconstriction and decreasing pulmonary vascular resistance</li><li>sildenafil: inhibits cGMP PDE-5 (which breaks down NO) --> prolongs effect of NO --> arterial vasodilation</li><li>epoprostenol, iloprost: prostacyclins, direct vasodilatory effects on pulmonary and systemic arterial vasculature, inhibit platelet aggregation</li></ul>";}, false);
+  // <li></li>
+  nasal.addEventListener('click', function(){ display.innerHTML = "<ul><li>alpha-adrenergic agonists</li><li>indication: reduce hyperemia, edema, nasal congestion</li><li>ex: pseudoephedrine, phenylephrine, xylometazoline, oxymetalozine</li><li>side effects: hypertension</li></ul>";}, false);
+
+
+  mucoactive.addEventListener('click', function(){ display.innerHTML = "<ul><li>subtype, based on mechanism, include expectorant and mucolytic</li><li>indication: increases clearance of respiratory secretions</li></ul>";}, false);
+  expectorant.addEventListener('click', function(){ display.innerHTML = "<ul><li>increase the volume of water airway secretions --> thin out respiratory secretions, making them easier to cough up</li><li>ex: guaifenesin</li></ul>";}, false);
+  mucolytic.addEventListener('click', function(){ display.innerHTML = "<ul><li>loosen mucus plugs</li><li>indication: Cystic Fibrosis patients</li><li>n-acetylcysteine: cleave disfulfide bonds within mucus glycoproteins, also used as an antidote for acetaminohpen overdose</li><li>dornase alfa(DNAse): a genetically engineered form of the human enzyme deoxyribonuclease, clears leukocytic debris through hydrolysis of DNA polymers</li></ul>";}, false);
+
+  arb.addEventListener('click', function(){ display.innerHTML = "<ul><li></li><li></li><li></li><li></li></ul>";}, false);
+  arb.addEventListener('click', function(){ display.innerHTML = "<ul><li></li><li></li><li></li><li></li></ul>";}, false);
+
+</script>
+
+
+<style>
+.text{
+  float: right;
+  width: 500px;
+}
+a:hover {
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 50px;
+  color: black;
+  font: 16px Verdana, sans-serif;
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#wrapper {
+  position: relative;
+}
+.branch {
+  position: relative;
+  margin-left: 250px;
+}
+.branch:before {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry {
+  position: relative;
+  min-height: 60px;
+}
+.entry:before {
+  content: "";
+  height: 100%;
+  border-left: 2px solid #000;
+  position: absolute;
+  left: -50px;
+}
+.entry:after {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry:first-child:before {
+  width: 10px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 10px 0 0 0;
+}
+.entry:first-child:after {
+  height: 10px;
+  border-radius: 10px 0 0 0;
+}
+.entry:last-child:before {
+  width: 10px;
+  height: 50%;
+  border-radius: 0 0 0 10px;
+}
+.entry:last-child:after {
+  height: 10px;
+  border-top: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 0 10px;
+  margin-top: -9px;
+}
+.entry.sole:before {
+  display: none;
+}
+.entry.sole:after {
+  width: 50px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+.label {
+  display: block;
+  min-width: 150px;
+  padding: 5px 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+</style>

@@ -1,0 +1,58 @@
+
+.mystyle {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+}
+
+.button {
+  background-color: lightgray;
+  }
+
+.second{
+  padding-left:5%;
+}
+
+
+
+.background{
+  margin-top: 4%;
+}
+
+
+
+.left{
+  width:30%;
+  padding-top: 3%;
+  padding-right:3%;
+  margin-left: 5%;
+  font-size: 18px;
+  float: left;
+}
+
+
+
+.left a{
+  color:inherit;
+}
+
+.left a:hover{
+  color:#6177b9;
+  text-decoration: none;
+}
+
+
+.left a:active{
+  color:#9900ff;
+}
+
+.text_appear{
+  width:40%;
+  padding-top: 8%;
+  padding-right:3%;
+
+  font-size: 18px;
+  float: left;
+}

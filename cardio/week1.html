@@ -1,0 +1,341 @@
+
+<button onClick="previous()" class="button"
+        id="backward">&#8592;
+ </button>
+ <button onclick="next()" class="button"
+         id="forward">&#8594;
+  </button>
+
+<div id="info" class="text"></div>
+
+<div id="wrapper"><span class="label" id="angina">angina</span>
+  <div class="branch lv1">
+    <div class="entry"><span class="label" id="stable"><a>stable angina</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="nitrate1"><a>nitrates</a></span>
+        </div>
+        <div class="entry"><span class="label" id="beta"><a>beta blockers</a></span>
+          <div class="branch lv1">
+            <div class="entry"><span class="label" id="noncardiobeta"><a>beta 1 & 2 antagonist (nonselective)</a></span>
+            </div>
+            <div class="entry"><span class="label" id="cardiobeta"><a>beta 1 antagonist (cardioselective)</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="ccb1"><a>ca channel<br> blockers</a></span>
+          <div class="branch lv1">
+            <div class="entry"><span class="label" id="diccb1"><a>Dihydropyridine Ca channel blockers</a></span>
+            </div>
+            <div class="entry"><span class="label" id="nondiccb1"><a>Non-Dihydropyridine Ca channel blockers</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="acs"><a>ACS</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="unstable"><a>unstable angina<br> & <br>NSTEMI</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="nitrate2"><a>nitrates</a></span>
+            </div>
+            <div class="entry"><span class="label" id="statin"><a>HMG-CoA reductase inhibitors (statins)</a></span>
+            </div>
+            <div class="entry"><span class="label" id="antiplate1"><a>anti-platelets</a></span>
+              <div class="branch lv1">
+                <div class="entry"><span class="label" id="aspirin1"><a>irreversible COX inhibitor</a></span>
+                </div>
+                <div class="entry"><span class="label" id="adp1"><a>P2Y12 receptor antagonists(ADP receptor inhibitors)</a></span>
+                </div>
+                <div class="entry"><span class="label" id="glyco1"><a>Glycoprotein IIb/IIIa inhibitors</a></span>
+                </div>
+                </div>
+            </div>
+            <div class="entry"><span class="label" id="anticoag1"><a>anti-coagulants</a></span>
+              <div class="branch lv1">
+                <div class="entry"><span class="label" id="heparin1"><a>heparin</a></span>
+                </div>
+                <div class="entry"><span class="label" id="warfarin1"><a>warfarin</a></span>
+                </div>
+                <div class="entry"><span class="label" id="thrombin1"><a>direct thrombin inhibitors</a></span>
+                </div>
+                <div class="entry"><span class="label" id="xa1"><a>direct factor Xa inhibitors</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="stemi"><a>STEMI</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="mona"><a>MONA therapy</a></span>
+            </div>
+            <div class="entry"><span class="label" id="antiplate2"><a>anti-platelets</a></span>
+              <div class="branch lv1">
+                <div class="entry"><span class="label" id="aspirin2"><a>irreversible COX inhibitor</a></span>
+                </div>
+                <div class="entry"><span class="label" id="adp2"><a>P2Y12 receptor antagonists(ADP receptor inhibitors)</a></span>
+                </div>
+                <div class="entry"><span class="label" id="glyco2"><a>Glycoprotein IIb/IIIa inhibitors</a></span>
+                </div>
+                </div>
+            </div>
+            <div class="entry"><span class="label" id="anticoag2"><a>anti-coagulants</a></span>
+              <div class="branch lv1">
+                <div class="entry"><span class="label" id="heparin2"><a>heparin</a></span>
+                </div>
+                <div class="entry"><span class="label" id="warfarin2"><a>warfarin</a></span>
+                </div>
+                <div class="entry"><span class="label" id="thrombin2"><a>direct thrombin inhibitors</a></span>
+                </div>
+                <div class="entry"><span class="label" id="xa2"><a>direct factor Xa inhibitors</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="entry"><span class="label" id="fib"><a>Fibrinolytics</a></span>
+              <div class="branch lv1">
+                <div class="entry"><span class="label" id="fibspecific"><a>fibrin-specific agent</a></span>
+                </div>
+                <div class="entry"><span class="label" id="nonfibspecific"><a>non-fibrin-specific agent</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="vasospastic"><a>variant<br>(prinzmetal)<br> angina</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="ccb2"><a>ca channel<br> blockers</a></span>
+          <div class="branch lv1">
+            <div class="entry"><span class="label" id="diccb2"><a>Dihydropyridine Ca channel blockers</a></span>
+            </div>
+            <div class="entry"><span class="label" id="nondiccb2"><a>Non-Dihydropyridine Ca channel blockers</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="nitrate3"><a>nitrates</a></span>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+<script>
+  var display = document.getElementById('info');
+  display.position = "absolute";
+
+  // When the user clicks on the modal, close it
+  const labels = document.querySelectorAll('.label');
+  display.onclick = function() {
+        // display.style.display = "none";
+        // display.visibility = "hidden";
+        // display.style.zIndex = -1;
+        display.innerHTML = "";
+        labels.forEach(label => {label.setAttribute('style', 'background-color: none');}); //reset highlighted button
+        document.getElementById("wrapper").style.zIndex = 1; //makes the classes clickable again but hides the popup text
+  }
+
+  labels.forEach(label => {
+    label.addEventListener('click', function(){
+        display.style.zIndex = 1;
+        label.setAttribute('style', 'background-color:  powderblue;');
+        //testing
+
+        const labelRect = label.getBoundingClientRect();
+        const displayRect = display.getBoundingClientRect();
+
+        const right = labelRect.right
+        const top = labelRect.top + window.scrollY;
+        display.style.left = `${right + 20}px`;
+        display.style.top = `${top}px`;
+
+        //testing
+        document.getElementById("wrapper").style.zIndex = -1;
+      })
+  }
+  );
+
+  angina.addEventListener('click', function(){ display.innerHTML = angina.textContent + "<ul><li>strategy: reduce oxygen demand of the heart so that supply is greater than demand</li><li>factors contributing to O2 demand: preload, afterload, HR, cardiac contractility</li></ul>";}, false);
+  stable.addEventListener('click', function(){ display.innerHTML = stable.textContent + "<ul><li>chest pain with exertion</li></ul>";}, false);
+  nitrate1.addEventListener('click', function(){ display.innerHTML = nitrate1.textContent + "<ul><li>release nitrous oxide --> increase in cGMP --> relaxation of arterial and venous smooth muscle --> reduction in SVR and BP</li><li>veins are more affected than arteries</li><li>venous pooling and decreased preload</li><li>ex: nitroglycerin, isosorbide dinitrate, isosorbide mononitrate</li><li>note: nitrate free interval is needed to avoid tolerance depending on the formulation</li><li>side effects: excessive hypotension, reflex tachycardia, headache, flushing</li></ul>";}, false);
+  nitrate2.addEventListener('click', function(){ display.innerHTML = nitrate2.textContent + "<ul><li>release nitrous oxide --> increase in cGMP --> relaxation of arterial and venous smooth muscle --> reduction in SVR and BP</li><li>veins are more affected than arteries</li><li>venous pooling and decreased preload</li><li>ex: nitroglycerin, isosorbide dinitrate, isosorbide mononitrate</li><li>note: nitrate free interval is needed to avoid tolerance depending on the formulation</li><li>side effects: excessive hypotension, reflex tachycardia, headache, flushing</li></ul>";}, false);
+  nitrate3.addEventListener('click', function(){ display.innerHTML = nitrate3.textContent + "<ul><li>release nitrous oxide --> increase in cGMP --> relaxation of arterial and venous smooth muscle --> reduction in SVR and BP</li><li>veins are more affected than arteries</li><li>venous pooling and decreased preload</li><li>ex: nitroglycerin, isosorbide dinitrate, isosorbide mononitrate</li><li>note: nitrate free interval is needed to avoid tolerance depending on the formulation</li><li>side effects: excessive hypotension, reflex tachycardia, headache, flushing</li></ul>";}, false);
+
+  beta.addEventListener('click', function(){ display.innerHTML = beta.textContent + "<ul><li>inhibit sympathetic activation of beta adrenergic receptors</li></ul>";}, false);
+  cardiobeta.addEventListener('click', function(){ display.innerHTML = cardiobeta.textContent + "<ul><li>inhibit binding of beta 1 receptors, which are found mostly in the heart</li><li>reduce HR and contractility</li><li>inhibit renin production</li><li>ex: (-olol), atenolol, metoprolol, esmolol, acebutalol, betaxolol, bisoprolol</li><li>side effects: bradycardia, fatigue, dizziness, heart block (sometimes these are preclusions to their use because people cannot tolerate the side effects)</li></ul>";}, false);
+  noncardiobeta.addEventListener('click', function(){ display.innerHTML = noncardiobeta.textContent + "<ul><li>inhibit binding of beta 1 and beta 2 receptors, affecting the heart, lungs, kidneys, vascular smooth muscle</li><li>reduce HR and contractility</li><li>inhibit renin production</li><li>ex: (-olol), propanalol, nadolol, pindolol, timolol</li><li>side effects: bradycardia, bronchoconstriction and asthma exacerbation, hypotension, fatigue, dizziness, heart block</li></ul>";}, false);
+
+  statin.addEventListener('click', function(){ display.innerHTML = statin.textContent + "<ul><li>first-line agent for hypercholesterolemia</li><li>inhibit HMG-CoA reductase(which converts HMG-CoA to mevalonate), the rate-determining step in cholesterol synthesis --> reduced hepatic cholesterol synthesis and increased synthesis of LDL receptors</li><li>ex: ('-statin'), lovastatin, pravastatin, simvastatin, atorvastatin</li></ul>";}, false);
+
+
+  acs.addEventListener('click', function(){ display.innerHTML = acs.textContent + "<ul><li>chest pain at rest due to cardiac issues</li></ul>";}, false);
+  unstable.addEventListener('click', function(){ display.innerHTML = unstable.textContent + "<ul><li>unstable angina: non ST segment elevation + negative biomarkers</li><li>NSTEMI: non ST segment elevation + positive biomarkers</li></ul>";}, false);
+  stemi.addEventListener('click', function(){ display.innerHTML = stemi.textContent + "<ul><li>ST segment elevation + positive biomarkers</li></ul>";}, false);
+  vasospastic.addEventListener('click', function(){ display.innerHTML = vasospastic.textContent + "<ul><li>due to coronary artery vasospasm</li><li>do not treat with beta blockers because beta-blockade can disrupt alpha and beta effects and worsen vasospasms</li></ul>";}, false);
+
+  antiplate1.addEventListener('click', function(){ display.innerHTML = antiplate1.textContent + "<ul><li>drugs that inhibit enzymes or receptors required for platelet activation, aggregation, and/or thrombus formation</li></ul>";}, false);
+  aspirin1.addEventListener('click', function(){ display.innerHTML = aspirin1.textContent + "<ul><li>covalently attaches an acetyl group to COX</li><li>irreversible COX-1 inhibition: inhibition of thromboxane(TXA2) synthesis in platelets --> inhibition of platelet aggregation</li><li>irreversible COX-1 and COX-2 inhibition: inhibition of prostacyclin and prostaglandin synthesis --> antipyretic, anti-inflammatory, and analgesic effect</li><li>ex: acetylsalicylic acid(aspirin)</li><li>side effects: peptic ulcers, hemorrhage, salicylate toxicity, Reye syndrome</li></ul>";}, false);
+  adp1.addEventListener('click', function(){ display.innerHTML = adp1.textContent + "<ul><li>inhibition of P2Y12 receptor on platelets(ADP receptor) --> decrease expression of Gp IIb/IIIa receptors on platelets --> inhibition of platelet aggregation</li><li>irreversible inhibition: clopidogrel, prasugrel, ticlopidine</li><li>reversible inhibition: ticagrelor</li><li>side effects: allergic reactions, hemorrhage, GI upset</li></ul>";}, false);
+  glyco1.addEventListener('click', function(){ display.innerHTML = glyco1.textContent + "<ul><li>block glycoprotein IIb/IIIa receptors(fibrinogen receptors) on the surface of activated platelets --> prevent platelets from binding to fibrinogen --> inhibition of platelet aggregation and thrombus formation</li><li>ex: abciximab, eptifibatide, tirofiban</li><li>side effects: thrombocytopenia, hemorrhage</li></ul>";}, false);
+
+  anticoag1.addEventListener('click', function(){ display.innerHTML = anticoag1.textContent + "<ul><li>used for treating and preventing embolic events</li></ul>";}, false);
+  heparin1.addEventListener('click', function(){ display.innerHTML = heparin1.textContent + "<ul><li>activates antithrombin --> decreases action of factors IIa and Xa</li><li>rapid onset of action</li><li>route of administration: IV, subcutaneous</li></ul>";}, false);
+  warfarin1.addEventListener('click', function(){ display.innerHTML = warfarin1.textContent + "<ul><li>inhibit hepatic vitamin K epoxide reductase --> decrease hepatic synthesis of active form of vitamin K --> reduce synthesis of clotting factors that require vitamin K, such as coagulation factors: II, VII, IX, X and regulatory protein C and S</li><li>slow onset of action</li><li>route of administration: oral</li><li>pros: well-known side effects, low costs</li><li>cons: requires regular monitoring</li></ul>";}, false);
+  thrombin1.addEventListener('click', function(){ display.innerHTML = thrombin1.textContent + "<ul><li>selective thrombin antagonist</li><li>ex: dabigatran</li></ul>";}, false);
+  xa1.addEventListener('click', function(){ display.innerHTML = xa1.textContent + "<ul><li>selective and direct inhibition of factor Xa</li><li>ex: apixaban, rivaroxaban, edoxaban</li></ul>";}, false);
+
+  mona.addEventListener('click', function(){ display.innerHTML = mona.textContent + "<ul><li>morphine + oxygen + nitroglycerin + aspirin</li></ul>";}, false);
+
+  antiplate2.addEventListener('click', function(){ display.innerHTML = antiplate2.textContent + "<ul><li>drugs that inhibit enzymes or receptors required for platelet activation, aggregation, and/or thrombus formation</li></ul>";}, false);
+  aspirin2.addEventListener('click', function(){ display.innerHTML = aspirin2.textContent + "<ul><li>covalently attaches an acetyl group to COX</li><li>irreversible COX-1 inhibition: inhibition of thromboxane(TXA2) synthesis in platelets --> inhibition of platelet aggregation</li><li>irreversible COX-1 and COX-2 inhibition: inhibition of prostacyclin and prostaglandin synthesis --> antipyretic, anti-inflammatory, and analgesic effect</li><li>ex: acetylsalicylic acid(aspirin)</li><li>side effects: peptic ulcers, hemorrhage, salicylate toxicity, Reye syndrome</li></ul>";}, false);
+  adp2.addEventListener('click', function(){ display.innerHTML = adp2.textContent + "<ul><li>inhibition of P2Y12 receptor on platelets(ADP receptor) --> decrease expression of Gp IIb/IIIa receptors on platelets --> inhibition of platelet aggregation</li><li>irreversible inhibition: clopidogrel, prasugrel, ticlopidine</li><li>reversible inhibition: ticagrelor</li><li>side effects: allergic reactions, hemorrhage, GI upset</li></ul>";}, false);
+  glyco2.addEventListener('click', function(){ display.innerHTML = glyco2.textContent + "<ul><li>block glycoprotein IIb/IIIa receptors(fibrinogen receptors) on the surface of activated platelets --> prevent platelets from binding to fibrinogen --> inhibition of platelet aggregation and thrombus formation</li><li>ex: abciximab, eptifibatide, tirofiban</li><li>side effects: thrombocytopenia, hemorrhage</li></ul>";}, false);
+
+  anticoag2.addEventListener('click', function(){ display.innerHTML = anticoag2.textContent + "<ul><li>used for treating and preventing embolic events</li></ul>";}, false);
+  heparin2.addEventListener('click', function(){ display.innerHTML = heparin2.textContent + "<ul><li>activates antithrombin --> decreases action of factors IIa and Xa</li><li>rapid onset of action</li><li>route of administration: IV, subcutaneous</li></ul>";}, false);
+  warfarin2.addEventListener('click', function(){ display.innerHTML = warfarin2.textContent + "<ul><li>inhibit hepatic vitamin K epoxide reductase --> decrease hepatic synthesis of active form of vitamin K --> reduce synthesis of clotting factors that require vitamin K, such as coagulation factors: II, VII, IX, X and regulatory protein C and S</li><li>slow onset of action</li><li>route of administration: oral</li><li>pros: well-known side effects, low costs</li><li>cons: requires regular monitoring</li></ul>";}, false);
+  thrombin2.addEventListener('click', function(){ display.innerHTML = thrombin2.textContent + "<ul><li>selective thrombin antagonist</li><li>ex: dabigatran</li></ul>";}, false);
+  xa2.addEventListener('click', function(){ display.innerHTML = xa2.textContent + "<ul><li>selective and direct inhibition of factor Xa</li><li>ex: apixaban, rivaroxaban, edoxaban</li></ul>";}, false);
+
+  fib.addEventListener('click', function(){ display.innerHTML = fib.textContent + "<ul><li>promote degradation of thrombi by activating plasminogen to plasmin</li><li>side effect: bleeding</li></ul>";}, false);
+  fibspecific.addEventListener('click', function(){ display.innerHTML = fibspecific.textContent + "<ul><li>promote degradation of fibrin but not fibrinogen</li><li>tissue plasminogen activator(tPA): Catalyzes the conversion of plasminogen to plasmin, which is the main enzyme responsible for clot breakdown</li><li>recombinant plasminogen activators: alteplase, reteplase, tenecteplase</li></ul>";}, false);
+  nonfibspecific.addEventListener('click', function(){ display.innerHTML = nonfibspecific.textContent + "<ul><li>promote degradation of both fibrin and fibrinogen</li><li>streptokinase: enzyme produced by group A streptococci, catalyzes conversion of plasminogen to plasmin</li><li>urokinase: serine protease found in plasma, urine, and tissue</li></ul>";}, false);
+
+
+  ccb1.addEventListener('click', function(){ display.innerHTML = ccb1.textContent + "<ul><li>strategy: decrease vascular resistance (BP = CO x SVR)</li><li>blocks L-type Ca channels, present in myocardium and vascular smooth muscles</li><li>cause peripheral arterial vasodilation(drop in BP) and myocardial depression(negative chronotropic, inotropic, and dromotropic)</li><li>classified into two groups based on main site of action</li></ul>";}, false);
+  diccb1.addEventListener('click', function(){ display.innerHTML = diccb1.textContent + "<ul><li>block L-type Ca2+ channels --> inhibit entry of Ca2+ into arteriolar smooth muscle --> arteriolar dilation and reduced SVR</li><li>work predominantly on arteriolar smooth muscle</li><li>potent vasodilatory effect</li><li>ex: Nifedipine, Amlodipine</li><li>note: Amlodipine has slower onset</li><li>side effect: edema</li></ul>";}, false);
+  nondiccb1.addEventListener('click', function(){ display.innerHTML = nondiccb1.textContent + "<ul><li>block L-type Ca2+ channels --> inhibit entry of Ca2+ into arteriolar smooth muscle --> arteriolar dilation and reduced SVR</li><li>act equally on heart and arterioles, thus also reduce cardiac contractility</li><li>potent myocardial depressant effect</li><li>ex: Diltiazem, Verapamil</li><li>side effect: bradycardia, hypotension, avoid in HF</li></ul>";}, false);
+
+  ccb2.addEventListener('click', function(){ display.innerHTML = ccb1.textContent + "<ul><li>strategy: decrease vascular resistance (BP = CO x SVR)</li><li>blocks L-type Ca channels, present in myocardium and vascular smooth muscles</li><li>cause peripheral arterial vasodilation(drop in BP) and myocardial depression(negative chronotropic, inotropic, and dromotropic)</li><li>classified into two groups based on main site of action</li></ul>";}, false);
+  diccb2.addEventListener('click', function(){ display.innerHTML = diccb2.textContent + "<ul><li>block L-type Ca2+ channels --> inhibit entry of Ca2+ into arteriolar smooth muscle --> arteriolar dilation and reduced SVR</li><li>work predominantly on arteriolar smooth muscle</li><li>potent vasodilatory effect</li><li>ex: Nifedipine, Amlodipine</li><li>note: Amlodipine has slower onset</li><li>side effect: edema</li></ul>";}, false);
+  nondiccb2.addEventListener('click', function(){ display.innerHTML = nondiccb2.textContent + "<ul><li>block L-type Ca2+ channels --> inhibit entry of Ca2+ into arteriolar smooth muscle --> arteriolar dilation and reduced SVR</li><li>act equally on heart and arterioles, thus also reduce cardiac contractility</li><li>potent myocardial depressant effect</li><li>ex: Diltiazem, Verapamil</li><li>side effect: bradycardia, hypotension, avoid in HF</li></ul>";}, false);
+
+  function next() {
+      window.history.forward();
+  }
+
+  function previous() {
+      window.history.back();
+  }
+</script>
+
+
+<style>
+.button {
+        background-color: lightgray;
+  }
+
+
+  .text{
+            float: right;
+            position: absolute;
+            width: 500px;
+            <!-- border-style: groove; -->
+            display: inline-block;
+            background-color: #EBEBEB;
+  }
+a:hover {
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 50px;
+  color: black;
+  font: 16px Verdana, sans-serif;
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#wrapper {
+  position: relative;
+}
+.branch {
+  position: relative;
+  margin-left: 250px;
+}
+.branch:before {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry {
+  position: relative;
+  min-height: 60px;
+}
+.entry:before {
+  content: "";
+  height: 100%;
+  border-left: 2px solid #000;
+  position: absolute;
+  left: -50px;
+}
+.entry:after {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry:first-child:before {
+  width: 10px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 10px 0 0 0;
+}
+.entry:first-child:after {
+  height: 10px;
+  border-radius: 10px 0 0 0;
+}
+.entry:last-child:before {
+  width: 10px;
+  height: 50%;
+  border-radius: 0 0 0 10px;
+}
+.entry:last-child:after {
+  height: 10px;
+  border-top: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 0 10px;
+  margin-top: -9px;
+}
+.entry.sole:before {
+  display: none;
+}
+.entry.sole:after {
+  width: 50px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+.label {
+  display: block;
+  min-width: 150px;
+  padding: 5px 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+</style>

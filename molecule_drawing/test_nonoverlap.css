@@ -1,0 +1,17 @@
+.main {
+position:relative; z-index: 1; height: 400px; width:400px;
+background-color: Blue; }
+
+.div1 {
+position:absolute; z-index: 1; height: 80px; width:200px;
+position: relative;
+background-color: Yellow; }
+
+.div2 {
+z-index: -1;
+position: absolute;
+height: 80px; width: 200px;
+top: 20px;
+left: 20px;
+background-color: Green;
+}

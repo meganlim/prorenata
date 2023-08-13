@@ -1,0 +1,257 @@
+
+<script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+
+<div id="info" class="text"></div>
+<div id="molecules" class="chart"></div>
+<!-- <table id="myTable" style="width:30%; float: right;" class="hidden">
+  <tr>
+    <th>Compound</th>
+    <th>Structure</th>
+  </tr>
+  <tr>
+    <td>lisinopril</td>
+    <td>Smith</td>
+  </tr>
+  <tr>
+    <td>next molecule</td>
+    <td>Jackson</td>
+  </tr>
+</table> -->
+
+<div id="wrapper"><span class="label">Neuro</span>
+  <div class="branch lv1">
+    <div class="entry"><span class="label" id="ace"><a>Anxiolytic &<br> Hypnotic</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="cardiobeta"><a>Benzodiazepene</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>Barbituate</a></span>
+        </div>
+        <div class="entry"><span class="label" id="cardiobeta"><a>partial 5HT-1A agonist</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>Opioids</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry"><span class="label" id="beta"><a>Antidepressant</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="cardiobeta"><a>SSRI</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>SNRI</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>MAO-inhibitor</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>TCAs</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>nontricyclic heterocyclic</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>serotonin modulator</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry"><span class="label" id="ace"><a>Neuroleptic</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="cardiobeta"><a>first gen antipsychotic</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>second gen(atypical) antipsychotic</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry"><span class="label" id="ace"><a>Anticonvulsant</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="cardiobeta"><a>increase GABAergic activity</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>Na+ channel inactivation</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>Ca2+ channel inactivation</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry"><span class="label" id="diuretic"><a>Neuro-<br>degenerative<br> disease therapy</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="kspare"><a>Alzheimer</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="achei"><a>AChE inhibition</a></span>
+            </div>
+            <div class="entry"><span class="label" id="enac"><a>NMDA inhibition</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="kspare"><a>Parkinson</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="aldant"><a>Levodopa/Carbidopa</a></span>
+            </div>
+            <div class="entry"><span class="label" id="enac"><a>MAO-B inhibitor</a></span>
+            </div>
+            <div class="entry"><span class="label" id="enac"><a>dopamine receptor<br>agonist</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry"><span class="label" id="ace"><a>Anesthetic</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="cardiobeta"><a>inhaled</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>IV</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var display = document.getElementById('info');
+  var moleculeTable = document.getElementById('molecules');
+
+
+  var acheiSmiles = {'donepezil': 'COC1=C(C=C2C(=C1)CC(C2=O)CC3CCN(CC3)CC4=CC=CC=C4)OC',
+                   'galantamine': 'CN1CCC23C=CC(CC2OC4=C(C=CC(=C34)C1)OC)O',
+                   'rivastigmine': 'CCN(C)C(=O)OC1=CC=CC(=C1)C(C)N(C)C'};
+
+  achei.addEventListener('click', function(){ display.innerHTML = "<ul><li>selectively inhibits AChE in CNS --> increases ACh levels</li></ul>";}, false);
+  achei.addEventListener('click', function(){
+    for (let k in acheiSmiles) {
+      initRDKitModule().then(function (instance) {
+        RDKitModule = instance;
+        // window.alert("version: " + RDKitModule.version());
+        var smiles = acheiSmiles[k]
+        var mol = RDKitModule.get_mol(smiles);
+        var svg = mol.get_svg();
+        display.innerHTML += "<li>" + k + svg + "</li>";
+      })
+    }})
+
+
+  beta.addEventListener('click', function(){ display.innerHTML = "<ul><li>decreased HR</li><li>reduced contractility</li><li>reduced BP</li><li>decreases myocardial oxygen requirements at rest and during exercise</li><li></li></ul>";}, false);
+
+</script>
+
+
+<style>
+.hidden {
+  display:none;
+  float:bottom;
+  float:right;
+}
+
+
+.text{
+  float: right;
+  width: 500px;
+}
+.chart{
+  float: right;
+  float: bottom;
+  width: 500px;
+}
+a:hover {
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 50px;
+  color: black;
+  font: 16px Verdana, sans-serif;
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#wrapper {
+  position: relative;
+}
+.branch {
+  position: relative;
+  margin-left: 250px;
+}
+.branch:before {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry {
+  position: relative;
+  min-height: 60px;
+}
+.entry:before {
+  content: "";
+  height: 100%;
+  border-left: 2px solid #000;
+  position: absolute;
+  left: -50px;
+}
+.entry:after {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry:first-child:before {
+  width: 10px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 10px 0 0 0;
+}
+.entry:first-child:after {
+  height: 10px;
+  border-radius: 10px 0 0 0;
+}
+.entry:last-child:before {
+  width: 10px;
+  height: 50%;
+  border-radius: 0 0 0 10px;
+}
+.entry:last-child:after {
+  height: 10px;
+  border-top: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 0 10px;
+  margin-top: -9px;
+}
+.entry.sole:before {
+  display: none;
+}
+.entry.sole:after {
+  width: 50px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+.label {
+  display: block;
+  min-width: 150px;
+  padding: 5px 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+</style>

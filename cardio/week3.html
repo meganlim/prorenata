@@ -1,0 +1,230 @@
+<button onClick="previous()" class="button"
+        id="backward">&#8592;
+ </button>
+ <button onclick="next()" class="button"
+         id="forward">&#8594;
+  </button>
+
+
+<div id="info" class="text"></div>
+<div id="wrapper"><span class="label">peripheral<br> arterial<br>disease(PAD)</span>
+  <div class="branch lv1">
+    <div class="entry"><span class="label" id="antiplate"><a>anti-platelets</a></span>
+      <div class="branch lv1">
+        <div class="entry"><span class="label" id="aspirin"><a>irreversible COX inhibitor</a></span>
+        </div>
+        <div class="entry"><span class="label" id="adp"><a>P2Y12 receptor antagonists(ADP receptor inhibitors)</a></span>
+        </div>
+        <div class="entry"><span class="label" id="glyco"><a>Glycoprotein IIb/IIIa inhibitors</a></span>
+        </div>
+        </div>
+    </div>
+    <div class="entry"><span class="label" id="anticoag"><a>anti-coagulants</a></span>
+      <div class="branch lv1">
+        <div class="entry"><span class="label" id="heparin"><a>heparin</a></span>
+        </div>
+        <div class="entry"><span class="label" id="warfarin"><a>warfarin</a></span>
+        </div>
+        <div class="entry"><span class="label" id="thrombin"><a>direct thrombin inhibitors</a></span>
+        </div>
+        <div class="entry"><span class="label" id="xa"><a>direct factor Xa inhibitors</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry"><span class="label" id="fib"><a>Fibrinolytics</a></span>
+      <div class="branch lv1">
+        <div class="entry"><span class="label" id="fibspecific"><a>fibrin-specific agent</a></span>
+        </div>
+        <div class="entry"><span class="label" id="nonfibspecific"><a>non-fibrin-specific agent</a></span>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+
+<script>
+
+  var display = document.getElementById('info');
+  display.position = "absolute";
+
+  // When the user clicks on the modal, close it
+  const labels = document.querySelectorAll('.label');
+  display.onclick = function() {
+        // display.style.display = "none";
+        // display.visibility = "hidden";
+        // display.style.zIndex = -1;
+        display.innerHTML = "";
+        labels.forEach(label => {label.setAttribute('style', 'background-color: none');}); //reset highlighted button
+        document.getElementById("wrapper").style.zIndex = 1; //makes the classes clickable again but hides the popup text
+  }
+
+  labels.forEach(label => {
+    label.addEventListener('click', function(){
+        display.style.zIndex = 1;
+        label.setAttribute('style', 'background-color: powderblue;');
+        //testing
+
+        const labelRect = label.getBoundingClientRect();
+        const displayRect = display.getBoundingClientRect();
+
+        const right = labelRect.right
+        const top = labelRect.top  + window.scrollY;
+        display.style.left = `${right + 20}px`;
+        display.style.top = `${top}px`;
+
+        //testing
+        document.getElementById("wrapper").style.zIndex = -1;
+      })
+  }
+  );
+
+  antiplate.addEventListener('click', function(){ display.innerHTML = antiplate.textContent + "<ul><li>drugs that inhibit enzymes or receptors required for platelet activation, aggregation, and/or thrombus formation</li></ul>";}, false);
+  aspirin.addEventListener('click', function(){ display.innerHTML = aspirin.textContent + "<ul><li>covalently attaches an acetyl group to COX</li><li>irreversible COX-1 inhibition: inhibition of thromboxane(TXA2) synthesis in platelets --> inhibition of platelet aggregation</li><li>irreversible COX-1 and COX-2 inhibition: inhibition of prostacyclin and prostaglandin synthesis --> antipyretic, anti-inflammatory, and analgesic effect</li><li>ex: acetylsalicylic acid(aspirin)</li><li>side effects: peptic ulcers, hemorrhage, salicylate toxicity, Reye syndrome</li></ul>";}, false);
+  adp.addEventListener('click', function(){ display.innerHTML = adp.textContent + "<ul><li>inhibition of P2Y12 receptor on platelets(ADP receptor) --> decrease expression of Gp IIb/IIIa receptors on platelets --> inhibition of platelet aggregation</li><li>irreversible inhibition: clopidogrel, prasugrel, ticlopidine</li><li>reversible inhibition: ticagrelor</li><li>side effects: allergic reactions, hemorrhage, GI upset</li></ul>";}, false);
+  glyco.addEventListener('click', function(){ display.innerHTML = glyco.textContent + "<ul><li>block glycoprotein IIb/IIIa receptors(fibrinogen receptors) on the surface of activated platelets --> prevent platelets from binding to fibrinogen --> inhibition of platelet aggregation and thrombus formation</li><li>ex: abciximab, eptifibatide, tirofiban</li><li>side effects: thrombocytopenia, hemorrhage</li></ul>";}, false);
+
+  anticoag.addEventListener('click', function(){ display.innerHTML = anticoag.textContent + "<ul><li>used for treating and preventing embolic events</li></ul>";}, false);
+  heparin.addEventListener('click', function(){ display.innerHTML = heparin.textContent + "<ul><li>activates antithrombin --> decreases action of factors IIa and Xa</li><li>rapid onset of action</li><li>route of administration: IV, subcutaneous</li></ul>";}, false);
+  warfarin.addEventListener('click', function(){ display.innerHTML = warfarin.textContent + "<ul><li>inhibit hepatic vitamin K epoxide reductase --> decrease hepatic synthesis of active form of vitamin K --> reduce synthesis of clotting factors that require vitamin K, such as coagulation factors: II, VII, IX, X and regulatory protein C and S</li><li>slow onset of action</li><li>route of administration: oral</li><li>pros: well-known side effects, low costs</li><li>cons: requires regular monitoring</li></ul>";}, false);
+  thrombin.addEventListener('click', function(){ display.innerHTML = thrombin.textContent + "<ul><li>selective thrombin antagonist</li><li>ex: dabigatran</li></ul>";}, false);
+  xa.addEventListener('click', function(){ display.innerHTML = xa.textContent + "<ul><li>selective and direct inhibition of factor Xa</li><li>ex: apixaban, rivaroxaban, edoxaban</li></ul>";}, false);
+
+  fib.addEventListener('click', function(){ display.innerHTML = fib.textContent + "<ul><li>promote degradation of thrombi by activating plasminogen to plasmin</li><li>side effect: bleeding</li></ul>";}, false);
+  fibspecific.addEventListener('click', function(){ display.innerHTML = fibspecific.textContent + "<ul><li>promote degradation of fibrin but not fibrinogen</li><li>tissue plasminogen activator(tPA): Catalyzes the conversion of plasminogen to plasmin, which is the main enzyme responsible for clot breakdown</li><li>recombinant plasminogen activators: alteplase, reteplase, tenecteplase</li></ul>";}, false);
+  nonfibspecific.addEventListener('click', function(){ display.innerHTML = nonfibspecific.textContent + "<ul><li>promote degradation of both fibrin and fibrinogen</li><li>streptokinase: enzyme produced by group A streptococci, catalyzes conversion of plasminogen to plasmin</li><li>urokinase: serine protease found in plasma, urine, and tissue</li></ul>";}, false);
+
+
+
+  function next() {
+      window.history.forward();
+  }
+
+  function previous() {
+      window.history.back();
+  }
+</script>
+
+
+<style>
+.button {
+            background-color: lightgray;
+    }
+
+    .text{
+              float: right;
+              position: absolute;
+              width: 500px;
+              <!-- border-style: groove; -->
+              display: inline-block;
+              background-color: #EBEBEB;
+    }
+
+a:hover {
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 50px;
+  color: black;
+  font: 16px Verdana, sans-serif;
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#wrapper {
+  position: relative;
+}
+.branch {
+  position: relative;
+  margin-left: 250px;
+}
+.branch:before {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry {
+  position: relative;
+  min-height: 60px;
+}
+.entry:before {
+  content: "";
+  height: 100%;
+  border-left: 2px solid #000;
+  position: absolute;
+  left: -50px;
+}
+.entry:after {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry:first-child:before {
+  width: 10px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 10px 0 0 0;
+}
+.entry:first-child:after {
+  height: 10px;
+  border-radius: 10px 0 0 0;
+}
+.entry:last-child:before {
+  width: 10px;
+  height: 50%;
+  border-radius: 0 0 0 10px;
+}
+.entry:last-child:after {
+  height: 10px;
+  border-top: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 0 10px;
+  margin-top: -9px;
+}
+.entry.sole:before {
+  display: none;
+}
+.entry.sole:after {
+  width: 50px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+.label {
+  display: block;
+  min-width: 150px;
+  padding: 5px 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+</style>

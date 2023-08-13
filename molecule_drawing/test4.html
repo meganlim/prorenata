@@ -1,0 +1,43 @@
+
+<script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+
+<button onClick="toggleTable()">Open Table</button>
+<table id="myTable" style="width:50%" class="hidden">
+  <tr>
+    <th>Compound</th>
+    <th>Structure</th>
+    <th>Property</th>
+  </tr>
+  <tr>
+    <td>lisinopril</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>next molecule</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+
+
+<style>
+.hidden {
+  display: none;
+}
+</style>
+
+<script>
+function toggleTable() {
+  table = document.getElementById("myTable").classList.toggle("hidden");
+
+  var table = document.getElementById('myTable');
+  for (var r = 0, n = table.rows.length; r < n; r++) {
+      for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
+          table.rows[r].cells[c].innerHTML = "test";
+      }
+  }
+}
+
+
+</script>

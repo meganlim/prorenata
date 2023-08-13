@@ -1,0 +1,269 @@
+
+<button onClick="previous()" class="button"
+        id="backward">&#8592;
+ </button>
+ <button onclick="next()" class="button"
+         id="forward">&#8594;
+  </button>
+
+<div id="info" class="text"></div>
+<div id="wrapper"><span class="label">anti-<br>hypertensives</span>
+  <div class="branch lv1">
+    <div class="entry"><span class="label" id="raas"><a>RAAS<br> antagonists</a></span>
+      <div class="branch lv1">
+        <div class="entry"><span class="label" id="ace"><a>ACE inhibitors</a></span>
+        </div>
+        <div class="entry"><span class="label" id="arb"><a>ARBs</a></span>
+        </div>
+        <div class="entry"><span class="label" id="renin"><a>direct renin inhibitor</a></span>
+        </div>
+        </div>
+    </div>
+    <div class="entry"><span class="label" id="symp"><a>Sympatholytics</a></span>
+      <div class="branch lv1">
+        <div class="entry"><span class="label" id="a1"><a>alpha 1 antagonist</a></span>
+        </div>
+        <div class="entry"><span class="label" id="a2"><a>alpha 2 agonist</a></span>
+        </div>
+        <div class="entry"><span class="label" id="noncardiobeta"><a>beta 1 & 2 antagonist (nonselective)</a></span>
+        </div>
+        <div class="entry"><span class="label" id="cardiobeta"><a>beta 1 antagonist (cardioselective)</a></span>
+        </div>
+        <div class="entry"><span class="label" id="mixed"><a>mixed alpha & beta antagonists</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="ccb"><a>Vasodilators</a></span>
+      <div class="branch lv1">
+        <div class="entry"><span class="label" id="diccb"><a>Dihydropyridine Ca channel blockers</a></span>
+        </div>
+        <div class="entry"><span class="label" id="nondiccb"><a>non-dihydropyridine Ca channel blockers</a></span>
+        </div>
+        <div class="entry"><span class="label" id="nitrate"><a>Nitrates</a></span>
+        </div>
+        <div class="entry"><span class="label" id="hydra"><a>Hydralazine</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="diuretic"><a>Diuretics</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="thi"><a>Thiazides</a></span>
+        </div>
+        <div class="entry"><span class="label" id="loop"><a>Loop</a></span>
+        </div>
+        <div class="entry"><span class="label" id="kspare"><a>K sparing</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="aldant"><a>Aldosterone receptor antagonists</a></span>
+            </div>
+            <div class="entry"><span class="label" id="enac"><a>Epithelial Na channel blockers</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="osmo"><a>Osmotic</a></span>
+        </div>
+        <div class="entry"><span class="label" id="cai"><a>Carbonic Anhydrase Inhibitors</a></span>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+
+<script>
+  var display = document.getElementById('info');
+  display.position = "absolute";
+
+  // When the user clicks on the modal, close it
+  const labels = document.querySelectorAll('.label');
+  display.onclick = function() {
+        // display.style.display = "none";
+        // display.visibility = "hidden";
+        // display.style.zIndex = -1;
+        display.innerHTML = "";
+        labels.forEach(label => {label.setAttribute('style', 'background-color: none');}); //reset highlighted button
+        document.getElementById("wrapper").style.zIndex = 1; //makes the classes clickable again but hides the popup text
+  }
+
+  labels.forEach(label => {
+    label.addEventListener('click', function(){
+        display.style.zIndex = 1;
+        label.setAttribute('style', 'background-color:  powderblue;');
+        //testing
+
+        const labelRect = label.getBoundingClientRect();
+        const displayRect = display.getBoundingClientRect();
+
+        const right = labelRect.right
+        const top = labelRect.top + window.scrollY;
+        display.style.left = `${right + 20}px`;
+        display.style.top = `${top}px`;
+
+        //testing
+        document.getElementById("wrapper").style.zIndex = -1;
+      })
+  }
+  );
+
+  raas.addEventListener('click', function(){ display.innerHTML = raas.textContent + "<ul><li>strategy: decrease vascular resistance (BP = CO x SVR)</li><li>note: ACE/ARB/direct renin inhibitors should not be used in combination therapy with each other due to risk of AKI</li></ul>"+ "<a href='https://www.researchgate.net/publication/357836725_Hyperglycemia_and_Angiotensin-Converting_Enzyme_2_in_Pulmonary_Function_in_the_Context_of_SARS-CoV-2_Infection/figures?lo=1'><img src='raas.jpeg' style='width:100%;height:33%;'></a>";}, false);
+  ace.addEventListener('click', function(){ display.innerHTML = ace.textContent + "<ul><li>inhibition of ACE, preventing conversion of AT1 to AT2</li><li>decreased AT2 levels reduces peripheral resistance and afterload</li><li>decreased aldosterone decreases salt and water retention which reduces preload</li><li>decreased breakdown of bradykinin results in increased kinin activity and vasodilation</li><li>side effect: cough due to elevated bradykinin, increased Scr, hyperkalemia, angioedema</li><li>ex: (-prils), captopril, lisinopril, enalapril</li></ul>";}, false);
+  arb.addEventListener('click', function(){ display.innerHTML = arb.textContent + "<ul><li>blockade of AT2 receptors --> similar downstream effects as ACE-i's</li><li>decreased vasoconstriction leads to decreased BP</li><li>decreased aldosterone decreases salt and water retention which reduces preload</li><li>unlike ACE-i's, there is less cough due to less bradykinin elevation</li><li>ex: (-sartans), losartan, valsartan</li><li>side effect: increased Scr, hyperkalemia, angioedema</li></ul>";}, false);
+  renin.addEventListener('click', function(){ display.innerHTML = renin.textContent + "<ul><li>directly binds and inhibits renin, preventing conversion of angiotensinogen to AT1 --> decreased AT2</li><li>ex: aliskiren</li></ul>";}, false);
+
+  // beta.addEventListener('click', function(){ display.innerHTML = "<ul><li>decreased HR</li><li>reduced contractility</li><li>reduced BP</li><li>decreases myocardial oxygen requirements at rest and during exercise</li><li></li></ul>";}, false);
+  // cardiobeta.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit binding of beta 1 receptors, which are found mostly in the heart</li></ul>";}, false);
+  // noncardiobeta.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit binding of beta 1 and beta 2 receptors, affecting the heart, lungs, kidneys, vascular smooth muscle, GI</li></ul>";}, false);
+  symp.addEventListener('click', function(){ display.innerHTML = symp.textContent + "<ul><li>strategy: decrease contractility (BP = CO x SVR)</li></ul>" + "<a href='https://basicmedicalkey.com/adrenergic-blocking-drugs/'><img src='sympathetic.jpeg' style='width:100%;height:50%;'></a>";}, false);
+  cardiobeta.addEventListener('click', function(){ display.innerHTML = cardiobeta.textContent + "<ul><li>inhibit binding of beta 1 receptors, which are found mostly in the heart</li><li>reduce HR and contractility</li><li>inhibit renin production</li><li>ex: (-olol), atenolol, metoprolol, esmolol, acebutalol, betaxolol, bisoprolol</li><li>side effects: bradycardia, fatigue, dizziness, heart block (sometimes these are preclusions to their use because people cannot tolerate the side effects)</li></ul>";}, false);
+  noncardiobeta.addEventListener('click', function(){ display.innerHTML = noncardiobeta.textContent + "<ul><li>inhibit binding of beta 1 and beta 2 receptors, affecting the heart, lungs, kidneys, vascular smooth muscle</li><li>reduce HR and contractility</li><li>inhibit renin production</li><li>ex: (-olol), propanalol, nadolol, pindolol, timolol</li><li>side effects: bradycardia, bronchoconstriction and asthma exacerbation, hypotension, fatigue, dizziness, heart block</li></ul>";}, false);
+  mixed.addEventListener('click', function(){ display.innerHTML = mixed.textContent + "<ul><li>beta 1 blockade effects + decreased SVR due to alpha blockade</li><li>ex: (-ilol, -alol), carvedilol, labetalol</li></ul>";}, false);
+  a1.addEventListener('click', function(){ display.innerHTML = a1.textContent + "<ul><li>selective alpha 1 receptor antagonism --> decreases SVR by preventing vasoconstriction</li><li>ex: (-osin), prazosin, doxazosin, terazosin</li><li>note: some that are more selective than others (i.e. tamsulosin)</li><li>side effects: orthostatic hypotension, dizziness, palpitations</li></ul>";}, false);
+  a2.addEventListener('click', function(){ display.innerHTML = a2.textContent + "<ul><li>selective agonism of alpha 2 receptors in the brainstem(these receptor are presynaptic) --> reduce central sympathetic outflow --> decreased CO and SVR</li><li>ex: methyldopa, clonidine</li><li>note: methyldopa is typically used in pregnant women</li></ul>";}, false);
+
+ // <li></li>
+
+ ccb.addEventListener('click', function(){ display.innerHTML = ccb.textContent + "<ul><li>strategy: decrease vascular resistance (BP = CO x SVR)</li><li>blocks L-type Ca channels, present in myocardium and vascular smooth muscles</li><li>cause peripheral arterial vasodilation(drop in BP) and myocardial depression(negative chronotropic, inotropic, and dromotropic)</li><li>classified into two groups based on main site of action</li></ul>";}, false);
+ diccb.addEventListener('click', function(){ display.innerHTML = diccb.textContent + "<ul><li>block L-type Ca2+ channels --> inhibit entry of Ca2+ into arteriolar smooth muscle --> arteriolar dilation and reduced SVR</li><li>work predominantly on arteriolar smooth muscle</li><li>potent vasodilatory effect</li><li>ex: Nifedipine, Amlodipine</li><li>note: Amlodipine has slower onset</li><li>side effect: edema</li></ul>";}, false);
+ nondiccb.addEventListener('click', function(){ display.innerHTML = nondiccb.textContent + "<ul><li>block L-type Ca2+ channels --> inhibit entry of Ca2+ into arteriolar smooth muscle --> arteriolar dilation and reduced SVR</li><li>act equally on heart and arterioles, thus also reduce cardiac contractility</li><li>potent myocardial depressant effect</li><li>ex: Diltiazem, Verapamil</li><li>side effect: bradycardia, hypotension, avoid in HF</li></ul>";}, false);
+ nitrate.addEventListener('click', function(){ display.innerHTML = nitrate.textContent + "<ul><li>release nitrous oxide --> increase in cGMP --> relaxation of arterial and venous smooth muscle --> reduction in SVR and BP</li><li>veins are more affected than arteries</li><li>venous pooling and decreased preload</li><li>ex: nitroglycerin, isosorbide dinitrate, isosorbide mononitrate</li><li>note: nitrate free interval is needed to avoid tolerance depending on the formulation</li><li>side effects: excessive hypotension, reflex tachycardia, headache, flushing</li></ul>";}, false);
+ hydra.addEventListener('click', function(){ display.innerHTML = hydra.textContent + "<ul><li>greater vasodilatory effect of arterioles than veins</li><li>side effect: reflex tachycardia, hypotension, lupus-like effect</li></ul>";}, false);
+
+ diuretic.addEventListener('click', function(){ display.innerHTML = diuretic.textContent + "<ul><li>strategy: decrease preload (BP = CO x SVR)</li><li>reduce blood volume by increasing the rate of urine excretion</li><li>categorized according to the renal structures they act on, changes in volume/composition of urine, and electrolyte balance</li></ul> img source: FA" + "<img src='diuretics.png' style='width:100%;height:40%;'>";}, false);
+ thi.addEventListener('click', function(){ display.innerHTML = thi.textContent + "<ul><li>inhibit Na+Cl- cotransports in DCT --> blocks Na+ and Cl- reabsorption --> NaCl is excreted along with water into the urine</li><li>increases Ca2+ reabsorption</li><li>ex: Hydrochlorothiazide, chlorothiazide, metolazone</li><li>side effect: HyperGLUC(glycemia, lipidemia, uricemia, calcemia), hyponatremia, hypomagnesemia, and hypokalemia</li></ul>";}, false);
+ loop.addEventListener('click', function(){ display.innerHTML = loop.textContent + "<ul><li>inhibit Na+K+2Cl- cotransporter on thick ascending loop of Henle --> prevent Na+ and K+ reabsorption into renal medulla --> dimishing concentration gradient between renal medulla and cortex --> urine unable to be concentrated in collecting ducts --> increased diuresis</li><li>increase Ca2+ excretion</li><li>Sulfonamides: furosemide, torsemide, bumetanide</li><li>non-sulfur containing: ethacrynic acid</li><li>side effect: hypokalemia, hypomagnesemia, contraction alkalosis, tinnitus, hypovolemia, dizziness</li></ul>";}, false);
+ kspare.addEventListener('click', function(){ display.innerHTML = kspare.textContent + "<ul><li>cause diuresis without significant potassium loss</li><li>because site of action is not in the proximal portions of the tubules, tubular flow is not increased (high tubular flow will increase K+ secretion)</li></ul>";}, false);
+ aldant.addEventListener('click', function(){ display.innerHTML = aldant.textContent + "<ul><li>competitively bind to aldosterone receptors in DCT and collecting duct --> decreased Na+ reabsorption and K+ secretion --> diuresis</li><li>ex: spironolactone, eplerenone</li><li>side effect: hyperkalemia, spironolactone causes gynecomastia, hypomagnesemia, consider exclusions based on potassium and renal function</li></ul>";}, false);
+ enac.addEventListener('click', function(){ display.innerHTML = enac.textContent + "<ul><li>inhibition of LENaC in the DCT and collecting duct --> decreased Na+ reabsorption and K+ secretion --> diuresis</li><li>ex: triamterene, amiloride</li><li>side effect: hyperkalemia, magnesium retention</li></ul>";}, false);
+ osmo.addEventListener('click', function(){ display.innerHTML = osmo.textContent + "<ul><li>increases kidney tubular fluid osmolarity --> at the proximal tubule, pulls water from intersitial space into tubules via osmosis --> more water excretion</li><li>ex: mannitol, urea</li><li>side effects: dehyration without adequate water intake, increased ECF (leading to pulmonary edema)</li></ul>";}, false);
+ cai.addEventListener('click', function(){ display.innerHTML = cai.textContent + "<ul><li>inhibit carbonic anhydrase at the PCT --> increase H+ reabsorption and inhibit Na+/H+ exchange --> increase bicarb elimination --> compensatory hyperventilation --> raise oxygenation</li><li>ex: acetazolamide</li><li>side effect: metabolic acidosis due to increased excretion of bicarb, renal stones due to decreased concentration of urine citrate, potassium wasting (increased Na+ delivery to distal nephron increases K+ excretion)</li></ul>";}, false);
+
+  function next() {
+      window.history.forward();
+  }
+
+  function previous() {
+      window.history.back();
+  }
+</script>
+
+
+<style>
+.button {
+      background-color: lightgray;
+  }
+
+
+  .text{
+            float: right;
+            position: absolute;
+            width: 500px;
+            <!-- border-style: groove; -->
+            display: inline-block;
+            background-color: #EBEBEB;
+  }
+a:hover {
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 50px;
+  color: black;
+  font: 16px Verdana, sans-serif;
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#wrapper {
+  position: relative;
+}
+.branch {
+  position: relative;
+  margin-left: 250px;
+}
+.branch:before {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry {
+  position: relative;
+  min-height: 60px;
+}
+.entry:before {
+  content: "";
+  height: 100%;
+  border-left: 2px solid #000;
+  position: absolute;
+  left: -50px;
+}
+.entry:after {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry:first-child:before {
+  width: 10px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 10px 0 0 0;
+}
+.entry:first-child:after {
+  height: 10px;
+  border-radius: 10px 0 0 0;
+}
+.entry:last-child:before {
+  width: 10px;
+  height: 50%;
+  border-radius: 0 0 0 10px;
+}
+.entry:last-child:after {
+  height: 10px;
+  border-top: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 0 10px;
+  margin-top: -9px;
+}
+.entry.sole:before {
+  display: none;
+}
+.entry.sole:after {
+  width: 50px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+.label {
+  display: block;
+  min-width: 150px;
+  padding: 5px 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+</style>

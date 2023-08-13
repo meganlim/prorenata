@@ -1,0 +1,263 @@
+<button onClick="previous()" class="button"
+        id="backward">&#8592;
+ </button>
+ <button onclick="next()" class="button"
+         id="forward">&#8594;
+  </button>
+
+
+<div id="info" class="text"></div>
+<div id="wrapper"><span class="label">Arrhythmia</span>
+  <div class="branch lv2">
+    <div class="entry"><span class="label" id="class1"><a>Class 1</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="onea"><a>A</a></span>
+        </div>
+        <div class="entry"><span class="label" id="oneb"><a>B</a></span>
+        </div>
+        <div class="entry"><span class="label" id="onec"><a>C</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="class2"><a>Class 2</a></span>
+    </div>
+    <div class="entry"><span class="label" id="class3"><a>Class 3</a></span>
+    </div>
+    <div class="entry"><span class="label" id="class4"><a>Class 4</a></span>
+    </div>
+    <div class="entry"><span class="label" id="adenosine"><a>Adenosine</a></span>
+    </div>
+    <div class="entry"><span class="label" id="mg"><a>Magnesium</a></span>
+    </div>
+    <div class="entry"><span class="label" id="ivabradine"><a>Ivabradine</a></span>
+    </div>
+  </div>
+</div>
+
+<div id="wrapper"><span class="label">Arrhythmia</span>
+  <div class="branch lv2">
+    <div class="entry"><span class="label" id="brady"><a>Brady</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="oneblock"><a>SA node: sinus</a></span>
+        </div>
+        <div class="entry"><span class="label" id="twoblock"><a>AV block: first, second, third degree</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="tachy"><a>Tachy</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="supra"><a>supraventricular</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="sa"><a>SA node: sinus</a></span>
+            </div>
+            <div class="entry"><span class="label" id="afib"><a>AV node/atria: PSVT</a></span>
+            </div>
+            <div class="entry"><span class="label" id="afib"><a>Atrial fib</a></span>
+            </div>
+            <div class="entry"><span class="label" id="aflutter"><a>Atrial flutter</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="avnrt"><a>AV nodal reentry <br> tachycardia(AVNRT)</a></span>
+        </div>
+        <div class="entry"><span class="label" id="ventricular"><a>ventricular</a></span>
+            <div class="branch lv2">
+              <div class="entry"><span class="label" id="pvc"><a>premature ventricular contraction</a></span>
+              </div>
+              <div class="entry"><span class="label" id="vfib"><a>Ventricular fib</a></span>
+              </div>
+              <div class="entry"><span class="label" id="vflutter"><a>Ventricular flutter</a></span>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<script>
+  var display = document.getElementById('info');
+  display.position = "absolute";
+
+  // When the user clicks on the modal, close it
+  const labels = document.querySelectorAll('.label');
+  display.onclick = function() {
+        // display.style.display = "none";
+        // display.visibility = "hidden";
+        // display.style.zIndex = -1;
+        display.innerHTML = "";
+        labels.forEach(label => {label.setAttribute('style', 'background-color: none');}); //reset highlighted button
+        document.getElementById("wrapper").style.zIndex = 1; //makes the classes clickable again but hides the popup text
+  }
+
+  labels.forEach(label => {
+    label.addEventListener('click', function(){
+        display.style.zIndex = 1;
+        label.setAttribute('style', 'background-color:  powderblue;');
+        //testing
+
+        const labelRect = label.getBoundingClientRect();
+        const displayRect = display.getBoundingClientRect();
+
+        const right = labelRect.right
+        const top = labelRect.top + window.scrollY;
+        display.style.left = `${right + 20}px`;
+        display.style.top = `${top}px`;
+
+        //testing
+        document.getElementById("wrapper").style.zIndex = -1;
+      })
+  }
+  );
+
+  brady.addEventListener('click', function(){ display.innerHTML = brady.textContent + "<ul><li>rate < 60bpm</li></ul>";}, false);
+  tachy.addEventListener('click', function(){ display.innerHTML = tachy.textContent + "<ul><li>rate > 100bpm</li></ul>";}, false);
+
+  class1.addEventListener('click', function(){ display.innerHTML = class1.textContent + "<ul><li>Na+ channel blockers</li></ul>";}, false);
+  onea.addEventListener('click', function(){ display.innerHTML = onea.textContent + "<ul><li>increased QRS interval: decrease ventricular conduction</li><li>increased QT interval: prolong ventricular action potential</li><li>indication: atrial and ventricular arrhythmia</li><li>ex: quinidine, procainamide, disopyramide</li><li>side effect of quinidine: cinchonism, torsades de pointes (due to increased QT interval)</li><li>side effect of procainamide: drug-induced lupus</li></ul>";}, false);
+  oneb.addEventListener('click', function(){ display.innerHTML = oneb.textContent + "<ul><li>slow conduction and increased threshold for firing of abnormal cells</li><li>indication: acute ventricular arrhythmia, post-MI arrhythmia</li><li>ex: lidocaine</li><li>side effect: CNS depression or excitation(dizziness, seizures), AV block</li></ul>";}, false);
+  onec.addEventListener('click', function(){ display.innerHTML = onec.textContent + "<ul><li>increased QRS interval: decrease ventricular conduction</li><li>indication: ventricular arrhythmias</li><li>ex: flecainide, propafenone</li><li>side effect: proarrhythogenic (contraindicated after MI), possible QT prolongation</li></ul>";}, false);
+  // <li></li>
+
+  class2.addEventListener('click', function(){ display.innerHTML = class2.textContent + "<ul><li>beta blockers</li><li>increased PR interval: decrease AV nodal conduction</li><li>ex: esmolol, metoprolol, propanalol</li><li>side effect: bradycardia, AV block</li></ul>";}, false);
+  class3.addEventListener('click', function(){ display.innerHTML = class3.textContent + "<ul><li>K+ channel blockers</li><li>increased QT interval: prolong ventricular action potential</li><li>indication: ventricular arrhythmia</li><li>ex: amiodarone, sotalol</li><li>side effect specific to amiodarone: pulmonary fibrosis, hepatotoxicity, thyroid disease</li><li>QTc monitoring is required with initiation of sotalol and should be carefully monitored thereafter</li></ul>";}, false);
+  class4.addEventListener('click', function(){ display.innerHTML = class4.textContent + "<ul><li>nondihydropyridine Ca2+ channel blockers with potent myocardial depressant effect (decrease AV nodal conduction)</li><li>block L-type Ca2+ channels --> inhibit entry of Ca2+ into arteriolar smooth muscle --> arteriolar dilation and reduced SVR</li><li>act equally on heart and arterioles, thus also reduce cardiac contractility</li><li>indication: supraventricular arrhythmias</li><li>ex: diltiazem, verapamil</li><li>side effect: bradycardia, hypotension, avoid in HF</li></ul>";}, false);
+
+  adenosine.addEventListener('click', function(){ display.innerHTML = adenosine.textContent + "<ul><li>decrease AV nodal conduction</li><li>increases K+ out of cells --> hyperpolarize the cell and decrease intracellular Ca --> decreasing AV node conduction</li><li>very short half-life</li><li>indication: supraventricular arrhythmia</li><li>side effect: flushing, hypotension, chest pain</li></ul>";}, false);
+  mg.addEventListener('click', function(){ display.innerHTML = mg.textContent + "<ul><li>mechanism: unknown</li><li>indication: torsades de pointes</li><li>side effect: respiratory depression</li></ul>";}, false);
+  ivabradine.addEventListener('click', function(){ display.innerHTML = ivabradine.textContent + "<ul><li>prolongs slow depolarization phase (phase 4) by selectively inhibiting 'funny' sodium channels</li><li>indication: chronic stable angina in patients who cannot take beta-blockers</li><li>there is a HR cutoff for its use, also used in heart failure</li><li>side effect: visual brightness, hypertension, bradycardia</li></ul>";}, false);
+
+
+  function next() {
+      window.history.forward();
+  }
+
+  function previous() {
+      window.history.back();
+  }
+
+</script>
+
+
+<style>
+.button {
+              background-color: lightgray;
+      }
+
+.text{
+          float: right;
+          position: absolute;
+          width: 500px;
+          <!-- border-style: groove; -->
+          display: inline-block;
+          background-color: #EBEBEB;
+}
+
+a:hover {
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 50px;
+  color: black;
+  font: 16px Verdana, sans-serif;
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#wrapper {
+  position: relative;
+}
+.branch {
+  position: relative;
+  margin-left: 250px;
+}
+.branch:before {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry {
+  position: relative;
+  min-height: 60px;
+}
+.entry:before {
+  content: "";
+  height: 100%;
+  border-left: 2px solid #000;
+  position: absolute;
+  left: -50px;
+}
+.entry:after {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry:first-child:before {
+  width: 10px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 10px 0 0 0;
+}
+.entry:first-child:after {
+  height: 10px;
+  border-radius: 10px 0 0 0;
+}
+.entry:last-child:before {
+  width: 10px;
+  height: 50%;
+  border-radius: 0 0 0 10px;
+}
+.entry:last-child:after {
+  height: 10px;
+  border-top: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 0 10px;
+  margin-top: -9px;
+}
+.entry.sole:before {
+  display: none;
+}
+.entry.sole:after {
+  width: 50px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+.label {
+  display: block;
+  min-width: 150px;
+  padding: 5px 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+</style>

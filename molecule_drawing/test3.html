@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+  <!-- Load the RDKit JS file -->
+  <script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+
+  <div id="test"></div>
+  <div id="drawing"></div>
+
+  <script>
+
+    var smilesDic = {'lisinopril': 'NCCCCC(NC(CCc1ccccc1)C(O)=O)C(=O)N2CCCC2C(O)=O'};
+
+    initRDKitModule().then(function (instance) {
+      RDKitModule = instance;
+      // window.alert("version: " + RDKitModule.version());
+
+      var smiles = smilesDic['lisinopril']
+      var mol = RDKitModule.get_mol(smiles);
+      var dest = document.getElementById("test");
+      var svg = mol.get_svg();
+      dest.innerHTML = "<div id='drawing'>" + svg + "</div>";
+
+
+    });
+
+  </script>
+</head>
+
+
+<body>
+</body>
+</html>

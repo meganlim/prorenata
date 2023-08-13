@@ -1,0 +1,198 @@
+
+
+<div id="info" class="text"></div>
+<div id="wrapper"><span class="label">Asthma</span>
+  <div class="branch lv2">
+    <div class="entry"><span class="label" id="kspare"><a>Bronchodilators</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="aldant"><a>Beta2 agonists</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="diccb"><a>SABA</a></span>
+            </div>
+            <div class="entry"><span class="label" id="nondiccb"><a>LABA</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="enac"><a>Muscarinic antagonists</a></span>
+        </div>
+        <div class="entry"><span class="label" id="enac"><a>Methylxanthines</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label" id="kspare"><a>Anti-<br>inflammatory</a></span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label" id="aldant"><a>Corticosteroids</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="diccb"><a>Oral</a></span>
+            </div>
+            <div class="entry"><span class="label" id="nondiccb"><a>Inhaled</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="enac"><a>Leukotriene<br>pathway<br> modifier</a></span>
+          <div class="branch lv2">
+            <div class="entry"><span class="label" id="diccb"><a>Lipoxygenase inhibitor</a></span>
+            </div>
+            <div class="entry"><span class="label" id="nondiccb"><a>Receptor antagonists</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="entry"><span class="label" id="enac"><a>Degranulation inhibitors</a></span>
+        </div>
+        <div class="entry"><span class="label" id="enac"><a>Monoclonal antibodies</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <script>
+  var display = document.getElementById('info');
+
+  ace.addEventListener('click', function(){ display.innerHTML = "<ul><li>-prils</li><li>inhibition of ACE(converts AT1 to AT2)</li><li>decreased AT2 levels reduces peripheral resistance and afterload</li><li>decreased aldosterone decreases salt and water retention which reduces preload</li><li>decreased breakdown of bradykinin results in increased kinin activity and vasodilation</li><li>net result is decreased BP</li><li>side effect: cough due to elevated bradykinin</li></ul>";}, false);
+  arb.addEventListener('click', function(){ display.innerHTML = "<ul><li>-sartans</li><li>inhibition of AT2 receptor type 1</li><li>decreased vasoconstriction leads to decreased BP</li><li>decreased aldosterone secretion decreases Na and water reabsorption which lowers BP</li><li>no bradykinin elevation(unlike ACE-i)</li></ul>";}, false);
+  beta.addEventListener('click', function(){ display.innerHTML = "<ul><li>decreased HR</li><li>reduced contractility</li><li>reduced BP</li><li>decreases myocardial oxygen requirements at rest and during exercise</li><li></li></ul>";}, false);
+  cardiobeta.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit binding of beta 1 receptors, which are found mostly in the heart</li></ul>";}, false);
+  noncardiobeta.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit binding of beta 1 and beta 2 receptors, affecting the heart, lungs, kidneys, vascular smooth muscle, GI</li></ul>";}, false);
+  ccb.addEventListener('click', function(){ display.innerHTML = "<ul><li>blocks L-type Ca channels, present in myocardium and vascular smooth muscles</li><li>cause peripheral arterial vasodilation(drop in BP) and myocardial depression(negative chronotropic, inotropic, and dromotropic)</li><li>classified into two groups based on main site of action</li></ul>";}, false);
+  diccb.addEventListener('click', function(){ display.innerHTML = "<ul><li>potent vasodilators</li><li>Nifedipine, Amlodipine</li></ul>";}, false);
+  nondiccb.addEventListener('click', function(){ display.innerHTML = "<ul><li>potent myocardial depressants</li><li>Diltiazem, Verapamil</li></ul>";}, false);
+  diuretic.addEventListener('click', function(){ display.innerHTML = "<ul><li>increase the production of urine</li><li>categorized according to renal structures they act on, changes in volume/composition of urine, and electrolyte balance</li></ul>";}, false);
+  thi.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit Na+Cl- cotransports in DCT increasing excretion of Na+ and Cl- and causing diuresis</li><li>Hydrochlorothiazide, chlorothiazide, metolazone</li></ul>";}, false);
+  loop.addEventListener('click', function(){ display.innerHTML = "<ul><li>block Na+K+2Cl- cotransporter on thick ascending loop of Henle -> dimishing concentration gradient between renal medulla and cortex -> not able to concentrate urine -> increased diuresis</li><li>Sulfonamides: furosemide, torsemide, bumetanide</li><li>non-sulfur containing: ethacrynic acid</li></ul>";}, false);
+  kspare.addEventListener('click', function(){ display.innerHTML = "<ul><li>cause diuresis without potassium loss</li></ul>";}, false);
+  aldant.addEventListener('click', function(){ display.innerHTML = "<ul><li>competitively bind to aldosterone receptors in DCT and collecting duct -> decreased Na+ reabsorption and K+ excretion -> diuresis</li><li>spironolactone, eplerenone</li></ul>";}, false);
+  enac.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibition of LENaC in the DCT and collecting duct -> decreased Na+ reabsorption and K+ secretion -> diuresis</li><li>triamterene, amiloride</li></ul>";}, false);
+  osmo.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit water reabsorption at PCT, thin descending, collecting duct</li><li>mannitol</li></ul>";}, false);
+  cai.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibit carbonic anhydrase -> increase H+ reabsorption and inhibit Na+/H+ exchange -> increase bicarb elimination -> compensatory hyperventilation -> raise oxygenation</li><li>acetazolamide</li></ul>";}, false);
+  nitrate.addEventListener('click', function(){ display.innerHTML = "<ul><li>increase release of nitric oxide(NO) in vascular smooth muscle cells -> smooth muscle relaxation and vasodilation</li><li>veins are more affected than arteries</li><li>venous pooling and decreased preload</li><li>nitroglycerin, isosorbide dinitrate, isosorbide mononitrate</li></ul>";}, false);
+  statin.addEventListener('click', function(){ display.innerHTML = "<ul><li>reduce hepatic cholesterol synthesis by inhibiting HMG-CoA reductase(which converts HMG-CoA to mevalonate) -> upregulated LDL receptors on hepatocytes -> lowers LDL cholesterol and triglyercides</li><li>Atorvastatin, Simvastatin, Pravastatin, Lovastatin</li></ul>";}, false);
+  digoxin.addEventListener('click', function(){ display.innerHTML = "<ul><li>inhibition of Na+/K+ ATPase -> inhibition of Na+/Ca2+ exchanger -> increase intracellular Ca2+ -> positive inotropy</li><li></li></ul>";}, false);
+  inotropes.addEventListener('click', function(){ display.innerHTML = "<ul><li>increase contractility of the heart</li></ul>";}, false);
+  antiarr.addEventListener('click', function(){ display.innerHTML = "<ul><li>slow/block conduction</li><li>prevent recurrent arrhythmias and restore sinus rhythm</li></ul>";}, false);
+  class1.addEventListener('click', function(){ display.innerHTML = "<ul><li>Na</li><li>decrease slope of phase 0 depolarization</li></ul>";}, false);
+  class2.addEventListener('click', function(){ display.innerHTML = "<ul><li>Beta blockers</li><li>decrease SA and AV nodal activity by decreasing cAMP and Ca2+ currents, decrease slope 4</li><li>increases PR interval</li></ul>";}, false);
+  class3.addEventListener('click', function(){ display.innerHTML = "<ul><li>K channel blockers</li><li>increases AP duration, ERP, and QT interval</li></ul>";}, false);
+  class4.addEventListener('click', function(){ display.innerHTML = "<ul><li>Ca channel blockers</li><li>decreases conduction velocity, increases ERP and PR interval</li></ul>";}, false);
+  adenosine.addEventListener('click', function(){ display.innerHTML = "<ul><li>increases K+ out of cells -> hyperpolarize the cell and decrease intracellular Ca -> decreasing AV node conduction</li><li></li></ul>";}, false);
+  ivabradine.addEventListener('click', function(){ display.innerHTML = "<ul><li>selective inhibition of funny sodium channels(If), prolonging phase 4</li><li>decreases SA node firing, reduces O2 requirement</li></ul>";}, false);
+  onea.addEventListener('click', function(){ display.innerHTML = "<ul><li>increases AP duration, effective refractory period, and QT interval</li><li>both atrial and ventricular arrhythmias</li><li>quinidine, procainamide, disopyramide</li></ul>";}, false);
+  oneb.addEventListener('click', function(){ display.innerHTML = "<ul><li>increases AP duration</li><li>ventricular arrhythmias</li><li>lidocaine</li></ul>";}, false);
+  onec.addEventListener('click', function(){ display.innerHTML = "<ul><li>prolongs ERP in AV node</li><li>atrial fibrillation</li><li>flecainide, propafenone</li></ul>";}, false);
+
+</script> -->
+
+
+<style>
+.text{
+  float: right;
+  width: 500px;
+}
+a:hover {
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 50px;
+  color: black;
+  font: 16px Verdana, sans-serif;
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#wrapper {
+  position: relative;
+}
+.branch {
+  position: relative;
+  margin-left: 250px;
+}
+.branch:before {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry {
+  position: relative;
+  min-height: 60px;
+}
+.entry:before {
+  content: "";
+  height: 100%;
+  border-left: 2px solid #000;
+  position: absolute;
+  left: -50px;
+}
+.entry:after {
+  content: "";
+  width: 50px;
+  border-top: 2px solid #000;
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  margin-top: 1px;
+}
+.entry:first-child:before {
+  width: 10px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 10px 0 0 0;
+}
+.entry:first-child:after {
+  height: 10px;
+  border-radius: 10px 0 0 0;
+}
+.entry:last-child:before {
+  width: 10px;
+  height: 50%;
+  border-radius: 0 0 0 10px;
+}
+.entry:last-child:after {
+  height: 10px;
+  border-top: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 0 10px;
+  margin-top: -9px;
+}
+.entry.sole:before {
+  display: none;
+}
+.entry.sole:after {
+  width: 50px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+.label {
+  display: block;
+  min-width: 150px;
+  padding: 5px 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+</style>

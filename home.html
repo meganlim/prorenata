@@ -1,0 +1,58 @@
+<html>
+   <head>
+     <title>Pharm</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   </head>
+
+   <body>
+     <button onClick="previous()" class="button"
+             id="backward">&#8592;
+      </button>
+      <button onclick="next()" class="button"
+              id="forward">&#8594;
+       </button>
+     <center>
+       <h2>Concept Maps</h2>
+
+       <a href="cardio.html">Cardiovascular<br> </a>
+       <a href="respiratory.html">Respiratory<br> </a>
+       <a href="renal.html">Renal<br> </a>
+       <a href="psych.html">Psychiatry<br> </a>
+       <a href="neuro.html">Clinical Neuroscience<br> </a>
+
+
+       <div class="text">
+         <b>Instructions</b><br>
+         Within each organ system, there is a classification map and maps for each disease state. The classification map provides relationships over all drug classes in that block while the disease state maps are for only that indication.<br><br>
+         To reveal information, hover mouse over drug class. Upon clicking, a text box will appear with pertinent information. To close, click anywhere on the pop up textbox. <i> Note: you will need to close an opened box before clicking another drug class.</i>
+         <br><br>
+         <a href="https://youtu.be/WnJ0sAUc-xE">Click for Tutorial</a>
+         <br><br>
+         any issues: mml8@illinois.edu
+       </div>
+
+    </center>
+
+   </body>
+   <script>
+       function next() {
+           window.history.forward();
+       }
+
+       function previous() {
+           window.history.back();
+       }
+   </script>
+
+  </html>
+
+
+<style>
+  .text{
+    margin: 55px;
+    padding: 10px;
+    width: 500px;
+    background-color: powderblue;
+  }
+</style>
